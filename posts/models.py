@@ -3,7 +3,14 @@ from django.utils import timezone
 from users.models import Author
 import uuid
 
-class Post(models.Model):
+class PublishedManager(models.Model):
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(status=Post.Status.PUBLISHED)
+        return queryset
+
+
+class Post(models.Manager):
     class Status(models.TextChoices):
         DRAFT = 'DF', 'Draft'
         PUBLISHED = 'PB', 'Published'
@@ -25,6 +32,9 @@ class Post(models.Model):
         choices=Status,
         default=Status.DRAFT
     )
+
+    objects = models.Manager() # the default manager.
+    published = PublishedManager() # our custom manager.
 
     class Meta:
         ordering = ['-publish']
