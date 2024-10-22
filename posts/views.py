@@ -9,7 +9,7 @@ def post_list(request):
 
     return render(
         request, 
-        'blog/post/list.html',
+        'posts/post/list.html',
         context
     )
 
@@ -21,6 +21,6 @@ def post_detail(request, uuid):
 
     return render(
         request,
-        'blog/post/detail.html',
+        'posts/post/detail.html',
         context
     )
