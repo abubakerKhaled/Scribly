@@ -14,7 +14,7 @@ def post_list(request):
     )
 
 
-def post_details(request, uuid):
+def post_detail(request, uuid):
     post = get_object_or_404(Post, uuid=uuid, status=Post.Status.PUBLISHED)
     
     context = {'post': post}
