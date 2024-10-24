@@ -6,5 +6,5 @@ app_name = 'posts'
 urlpatterns = [
     # post views
     path('', views.post_list, name='post_list'),
-    path('<uuid:uuid>', views.post_detail, name='post_detail'),
+    path('<uuid:uuid>/', views.post_detail, name='post_detail'),
 ]
