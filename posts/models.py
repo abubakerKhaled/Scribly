@@ -3,14 +3,15 @@ from django.utils import timezone
 from users.models import Author
 import uuid
 
-class PublishedManager(models.Model):
+
+class PublishedManager(models.Manager):
     def get_queryset(self):
         queryset = super().get_queryset()
         queryset = queryset.filter(status=Post.Status.PUBLISHED)
         return queryset
 
 
-class Post(models.Manager):
+class Post(models.Model):
     class Status(models.TextChoices):
         DRAFT = 'DF', 'Draft'
         PUBLISHED = 'PB', 'Published'
