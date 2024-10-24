@@ -24,7 +24,7 @@ class Post(models.Model):
         related_name='blog_posts',
     )
     body = models.TextField()
-    uuid = models.UUIDField(default=uuid.uuid4, unique=True, editable=False, primary_key=True)
+    uuid = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
