@@ -39,23 +39,16 @@
                 </article>
             {% endfor %}
             
-            {% if posts.has_other_pages %}
+            {% if page_obj.has_other_pages %}
                 <nav class="pagination">
-                    {% if posts.has_previous %}
-                        <a href="?page={{ posts.previous_page_number }}">&laquo; Previous</a>
-                    {% endif %}
-                    
-                    {% if posts.has_next %}
-                        <a href="?page={{ posts.next_page_number }}">Next &raquo;</a>
-                    {% endif %}
+                    {% include "pagination.html" with page=page_obj %}
                 </nav>
+            {% endif %}     
+                
+            {% else %}
+                <p class="no-posts">No posts found.</p>
             {% endif %}
-            
-        {% else %}
-            <p class="no-posts">No posts found.</p>
-        {% endif %}
-    </section>
-    {% include "pagination.html" with page=posts %}
+            </section>
 {% endblock content %}
 
 {% block sidebar %}
