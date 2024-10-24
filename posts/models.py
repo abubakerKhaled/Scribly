@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils import timezone
 from users.models import Author
 import uuid
@@ -16,7 +17,7 @@ class Post(models.Model):
         DRAFT = 'DF', 'Draft'
         PUBLISHED = 'PB', 'Published'
     title = models.CharField(max_length=250)
-    slug = models.SlugField(max_length=250, unique=True)
+    slug = models.SlugField(max_length=250, unique=True, unique_for_date='publish')
     author = models.ForeignKey(
         Author, 
         on_delete=models.CASCADE,
@@ -44,3 +45,7 @@ class Post(models.Model):
 
     def __str__(self) -> str:
         return self.title[:50] + ("..." if len(self.title) > 50 else "")
+    
+    def get_absolute_url(self):
+        return reverse("posts:post_detail", args=[self.uuid])
+    
