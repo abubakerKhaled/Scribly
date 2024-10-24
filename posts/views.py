@@ -16,8 +16,13 @@ def post_list(request):
 
 def post_detail(request, uuid):
     post = get_object_or_404(Post, uuid=uuid, status=Post.Status.PUBLISHED)
-    
-    context = {'post': post}
+    recent_posts = Post.objects.exclude(uuid=post.uuid).order_by("-created")[:5]
+    posts = Post.objects.all()  # Add this line
+    context = {
+        'posts': posts,
+        "post": post,
+        "recent_posts": recent_posts,
+    }
 
     return render(
         request,
