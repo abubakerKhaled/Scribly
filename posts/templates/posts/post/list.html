@@ -1,23 +1,77 @@
-{% extends 'base.html' %}
-
+{# templates/blog/post_list.html #}
+{% extends "base.html" %}
 
 {% block title %}
-    My Blog
+    My Blog Posts
 {% endblock title %}
 
-
-
 {% block content %}
-    <h1>My Blog</h1>
-    {% for post in posts %}
-        <h2>
-            <a href="{% url 'posts:post_detail' post.uuid %}">
-                {{ post.title }}
-            </a>
-        </h2>
-        <p class="date">
-            Published {{ post.publish }} by {{ post.author }}
-        </p>
-        {{ post.body|truncatewords:30|linebreaks }}
-    {% endfor %}
+    <section class="posts-section">
+        <h1>Latest Posts</h1>
+        
+        {% if posts %}
+            {% for post in posts %}
+                <article class="post">
+                    <h2 class="post-title">
+                        <a href="{% url 'posts:post_detail' post.uuid %}">
+                            {{ post.title }}
+                        </a>
+                    </h2>
+                    
+                    <div class="post-meta">
+                        <time datetime="{{ post.publish|date:'Y-m-d' }}">
+                            Published {{ post.publish|date:"F j, Y" }}
+                        </time>
+                        by {{ post.author }}
+                    </div>
+                    
+                    <div class="post-content">
+                        {{ post.body|truncatewords:30|linebreaks }}
+                    </div>
+                    
+                    <a href="{% url 'posts:post_detail' post.uuid %}" class="read-more">
+                        Read more
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" 
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </article>
+            {% endfor %}
+            
+            {% if posts.has_other_pages %}
+                <nav class="pagination">
+                    {% if posts.has_previous %}
+                        <a href="?page={{ posts.previous_page_number }}">&laquo; Previous</a>
+                    {% endif %}
+                    
+                    {% if posts.has_next %}
+                        <a href="?page={{ posts.next_page_number }}">Next &raquo;</a>
+                    {% endif %}
+                </nav>
+            {% endif %}
+            
+        {% else %}
+            <p class="no-posts">No posts found.</p>
+        {% endif %}
+    </section>
 {% endblock content %}
+
+{% block sidebar %}
+    <div class="sidebar-section">
+        <h3>Latest Posts</h3>
+        {% with recent_posts=posts|slice:":5" %}
+            {% if recent_posts %}
+                <ul class="sidebar-posts">
+                    {% for post in recent_posts %}
+                        <li>
+                            <a href="{% url 'posts:post_detail' post.uuid %}">
+                                {{ post.title }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+{% endblock sidebar %}
