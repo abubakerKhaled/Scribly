@@ -1,0 +1,22 @@
+/* static/css/comments.css */
+/* Comment styles */
+.comments-section {
+    margin-top: 3rem;
+}
+
+.comment {
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.comment:nth-child(even) {
+    background: var(--light-gray);
+}
+
+.comment .info {
+    font-weight: bold;
+    font-size: 0.875rem;
+    color: var(--comment-info-color);
+    margin-bottom: 0.5rem;
+}

@@ -1,0 +1,59 @@
+/* static/css/components.css */
+/* Sidebar */
+.sidebar {
+    background: var(--light-gray);
+    padding: 1.5rem;
+    border-radius: 8px;
+    position: sticky;
+    top: 2rem;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin: 2rem 0 1rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: color-mix(in srgb, var(--primary-color) 80%, black);
+}
+
+/* Pagination */
+.pagination {
+    margin: 2.5rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.pagination a {
+    padding: 0.5rem 1rem;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.pagination a:hover {
+    background: var(--light-gray);
+}

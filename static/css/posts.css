@@ -1,0 +1,39 @@
+/* static/css/posts.css */
+/* Post styles */
+.post {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.post-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.post-meta {
+    color: var(--date-color);
+    font-family: Georgia, serif;
+    font-size: 0.875rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.post-content {
+    line-height: 1.8;
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.read-more svg {
+    margin-left: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+}
