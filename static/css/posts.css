@@ -1,0 +1,137 @@
+/* static/css/posts.css */
+/* Post styles */
+.post {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.post-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.post-meta {
+    color: var(--date-color);
+    font-family: Georgia, serif;
+    font-size: 0.875rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.post-content {
+    line-height: 1.8;
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.read-more svg {
+    margin-left: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Optimized Four Posts Layout Styles */
+.similar-posts-grid {
+    background: white;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.similar-posts-title {
+    font-size: 1.1rem;
+    margin: 0 0 1rem 0;
+    color: var(--text-color);
+}
+
+.four-posts-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 100%;
+}
+
+.similar-post-card {
+    background: var(--light-gray);
+    padding: 1rem;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: transform 0.2s ease;
+}
+
+.similar-post-card:hover {
+    transform: translateY(-2px);
+}
+
+.similar-post-card time {
+    font-size: 0.75rem;
+    color: var(--comment-info-color);
+}
+
+.similar-post-card h3 {
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+
+.similar-post-card h3 a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.similar-post-card h3 a:hover {
+    color: var(--primary-color);
+}
+
+.post-tag {
+    font-size: 0.75rem;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    align-self: flex-start;
+}
+
+.no-posts {
+    color: var(--comment-info-color);
+    text-align: center;
+    margin: 0;
+    padding: 0.5rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .four-posts-container {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .similar-posts-grid {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+
+    .similar-post-card {
+        padding: 0.875rem;
+    }
+}
+
+/* Larger screens */
+@media (min-width: 1024px) {
+    .four-posts-container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

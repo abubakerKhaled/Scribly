@@ -1,0 +1,52 @@
+{# templates/base.html #}
+{% load blog_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Blog{% endblock title %}</title>
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    <link href="{% static 'css/components.css' %}" rel="stylesheet">
+    <link href="{% static 'css/posts.css' %}" rel="stylesheet">
+    <link href="{% static 'css/forms.css' %}" rel="stylesheet">
+    <link href="{% static 'css/comments.css' %}" rel="stylesheet">
+    <link href="{% static 'css/share.css' %}" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <nav>
+                <a href="{% url 'posts:post_list' %}" class="site-title">My Blog</a>
+                <span class="post-count">
+                    Total Published Posts: {% total_posts %}
+                </span>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <main>
+                {% block content %}
+                {% endblock content %}
+            </main>
+
+            <aside class="sidebar">
+                <h2>My Blog</h2>
+                <p>This is my blog.</p>
+                {% block sidebar %}
+                {% endblock sidebar %}
+            </aside>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; {% now "Y" %} My Blog. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
