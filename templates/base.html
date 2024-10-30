@@ -20,9 +20,15 @@
       <div class="container">
         <nav>
           <a href="{% url 'posts:post_list' %}" class="site-title">My Blog</a>
+          <form method="get" action="{% url 'posts:post_search' %}" class="search-form">
+            <input type="text" name="query" placeholder="Search posts..." class="search-input" />
+            <button type="submit" class="search-button">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
         </nav>
       </div>
-    </header>
+  </header>
 
     <div class="container">
       <div class="main-content">

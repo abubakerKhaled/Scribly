@@ -24,12 +24,19 @@ body {
     padding: 0 1rem;
 }
 
-/* Header styles */
+/* Header Styles */
 .site-header {
-    background: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 1rem 0;
-    margin-bottom: 2rem;
+}
+
+.site-header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .site-title {
@@ -37,6 +44,96 @@ body {
     color: var(--text-color);
     text-decoration: none;
     font-weight: bold;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.search-input {
+    flex-grow: 1;
+    padding: 0.75rem 1.2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 1rem;
+    background-color: #f8f9fa;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.search-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #0090d9;
+}
+
+.search-button i {
+    font-size: 1.1rem;
+}
+
+/* Search Results Template Styles */
+.search-results {
+    margin-top: 2rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+.search-results h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    color: var(--text-color);
+}
+
+.search-results ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.search-results li {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--light-gray);
+    padding-bottom: 1rem;
+}
+
+.search-results li:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.search-results a {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.search-results a:hover {
+    color: #0090d9;
+}
+
+.search-results p.no-results {
+    font-style: italic;
+    color: var(--comment-info-color);
+    text-align: center;
+    margin-top: 1.5rem;
 }
 
 /* Layout */
@@ -89,7 +186,7 @@ body {
         gap: 0.75rem;
     }
 
-    .post-count {
+    Copy.post-count {
         font-size: 0.85rem;
         padding: 0.4rem 0.75rem;
     }

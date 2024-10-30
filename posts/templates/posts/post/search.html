@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Search results{% endblock %}
+
+{% block content %}
+  <h1>Search results</h1>
+  {% if query %}
+    <h2>Results for "{{ query }}":</h2>
+    {% if results %}
+      <ul>
+        {% for post in results %}
+          <li><a href="{% url 'posts:post_detail' post.uuid %}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No results found.</p>
+    {% endif %}
+  {% endif %}
+{% endblock %}
