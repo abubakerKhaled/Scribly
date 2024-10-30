@@ -113,3 +113,24 @@ body {
 .post-count::before {
     animation: pulse 2s infinite ease-in-out;
 }
+
+/* Subscription section styling */
+.subscription-section {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.rss-feed-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.rss-feed-link:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
